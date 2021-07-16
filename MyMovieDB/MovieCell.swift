@@ -29,7 +29,9 @@ struct MovieCell: View {
 							.lineLimit(1)
 					}
 					Spacer()
-					Text("Note")
+					CircleProgressBar(progress: 8.3)
+						.frame(width: 45, height: 45)
+						.padding(2.5)
 				}
 				Text("Dans un village norvégien pollué et troublé par la fonte des glaciers, la fin des temps semble bien réelle. Mais un combat doit opposer une légende à un mal ancestral.")
 					.font(.callout)
