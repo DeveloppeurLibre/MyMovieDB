@@ -9,9 +9,12 @@ import SwiftUI
 import Kingfisher
 
 struct MovieCell: View {
+	
+	let viewModel: MovieCellViewModel
+	
     var body: some View {
 		HStack {
-			KFImage(URL(string: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1LRLLWGvs5sZdTzuMqLEahb88Pc.jpg"))
+			KFImage(viewModel.imageURL)
 				.resizable()
 				.aspectRatio(contentMode: .fill)
 				.frame(width: 100, height: 150)
@@ -20,20 +23,20 @@ struct MovieCell: View {
 			VStack(alignment: .leading, spacing: 8) {
 				HStack {
 					VStack(alignment: .leading) {
-						Text("Ragnarök")
+						Text(viewModel.title)
 							.font(.title2)
 							.fontWeight(.semibold)
-						Text("Saisons + types + etc")
+						Text("\(viewModel.seasonCount) saisons | \(viewModel.genres.joined(separator: " • "))")
 							.foregroundColor(Color.white.opacity(0.5))
 							.font(.caption)
 							.lineLimit(1)
 					}
 					Spacer()
-					CircleProgressBar(progress: 8.3)
+					CircleProgressBar(progress: viewModel.rating)
 						.frame(width: 45, height: 45)
 						.padding(2.5)
 				}
-				Text("Dans un village norvégien pollué et troublé par la fonte des glaciers, la fin des temps semble bien réelle. Mais un combat doit opposer une légende à un mal ancestral.")
+				Text(viewModel.description)
 					.font(.callout)
 					.fontWeight(.light)
 					.lineLimit(4)
@@ -46,8 +49,18 @@ struct MovieCell: View {
 }
 
 struct MovieCell_Previews: PreviewProvider {
+	
+	static let viewModel = MovieCellViewModel(
+		imageURL: URL(string: "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1LRLLWGvs5sZdTzuMqLEahb88Pc.jpg"),
+		title: "Ragnarök",
+		seasonCount: 2,
+		genres: ["Science-Fiction", "Fantastique", "Drame", "Mystère"],
+		rating: 8.2,
+		description: "La saison 2 de Ragnarök a été diffusée à partir du 27 mai 2021."
+	)
+	
     static var previews: some View {
-        MovieCell()
+		MovieCell(viewModel: viewModel)
 			.previewLayout(.sizeThatFits)
     }
 }
