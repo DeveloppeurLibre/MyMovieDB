@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
 	
-	let movieRepository = MockedMovieRepository()
+	let movieRepository = RealMovieRepository()
 	@State var medias = [Serie]()
 	
 	init() {
