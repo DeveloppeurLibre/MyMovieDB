@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct Serie {
+struct Serie: Identifiable {
+	let id = UUID()
 	let imageURL: URL?
 	let title: String
 	let description: String
