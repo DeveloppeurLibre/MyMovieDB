@@ -27,7 +27,7 @@
 		646DB16C26A4464F00CF520E /* MockedMovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DB16B26A4464F00CF520E /* MockedMovieRepository.swift */; };
 		646DB16E26A451E800CF520E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DB16D26A451E800CF520E /* HomeView.swift */; };
 		646DB17226A4653F00CF520E /* RealMovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DB17126A4653F00CF520E /* RealMovieRepository.swift */; };
-		646DB17426A465AA00CF520E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DB17326A465AA00CF520E /* Constants.swift */; };
+		646DB17626A6CB9C00CF520E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DB17526A6CB9C00CF520E /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +52,7 @@
 		646DB16B26A4464F00CF520E /* MockedMovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockedMovieRepository.swift; sourceTree = "<group>"; };
 		646DB16D26A451E800CF520E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		646DB17126A4653F00CF520E /* RealMovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealMovieRepository.swift; sourceTree = "<group>"; };
-		646DB17326A465AA00CF520E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		646DB17526A6CB9C00CF520E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 				646DB16926A443F300CF520E /* MockedData.swift */,
 				646DB16B26A4464F00CF520E /* MockedMovieRepository.swift */,
 				646DB17126A4653F00CF520E /* RealMovieRepository.swift */,
-				646DB17326A465AA00CF520E /* Constants.swift */,
+				646DB17526A6CB9C00CF520E /* Constants.swift */,
 			);
 			path = MyMovieDB;
 			sourceTree = "<group>";
@@ -251,7 +251,7 @@
 				646DB17226A4653F00CF520E /* RealMovieRepository.swift in Sources */,
 				6450728826A1C74100427BEA /* MovieCell.swift in Sources */,
 				646DB15726A3079A00CF520E /* MovieCellViewModel.swift in Sources */,
-				646DB17426A465AA00CF520E /* Constants.swift in Sources */,
+				646DB17626A6CB9C00CF520E /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
