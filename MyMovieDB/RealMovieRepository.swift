@@ -9,9 +9,10 @@ import Foundation
 
 class RealMovieRepository {
 	
-	func getSeries() -> [Serie] {
+	func getPopularSerieIDs(completion: @escaping ([Int]) -> Void) {
 		let url = URL(string: "https://api.themoviedb.org/3/tv/popular?api_key=\(API_KEY)&language=fr")!
 		
+		var IDs = [Int]()
 		let task = URLSession.shared.dataTask(with: url) { data, response, error in
 			guard let data = data else { return }
 			guard let json = self.getJSON(from: data) else { return }
@@ -20,12 +21,11 @@ class RealMovieRepository {
 			
 			for result in results {
 				let id = result["id"] as! Int
-				print(id)
+				IDs.append(id)
 			}
+			completion(IDs)
 		}
 		task.resume()
-		
-		return []
 	}
 	
 	private func getJSON(from data: Data) -> [String: Any]? {

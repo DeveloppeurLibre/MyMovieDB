@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
 	
 	let movieRepository = RealMovieRepository()
-	@State var medias = [Serie]()
+	@State var mediaIDs = [Int]()
 	
 	init() {
 		let appearance = UINavigationBarAppearance()
@@ -31,23 +31,26 @@ struct HomeView: View {
     var body: some View {
 		NavigationView {
 			ScrollView {
-				ForEach(medias) { medium in
-					let viewModel = MovieCellViewModel(
-						imageURL: medium.imageURL,
-						title: medium.title,
-						seasonCount: medium.seasons.count,
-						genres: medium.genres,
-						rating: medium.rating,
-						description: medium.description
-					)
-					MovieCell(viewModel: viewModel)
-				}
+//				ForEach(medias) { medium in
+//					let viewModel = MovieCellViewModel(
+//						imageURL: medium.imageURL,
+//						title: medium.title,
+//						seasonCount: medium.seasons.count,
+//						genres: medium.genres,
+//						rating: medium.rating,
+//						description: medium.description
+//					)
+//					MovieCell(viewModel: viewModel)
+//				}
 			}
 			.navigationTitle("My Movies")
 			.background(Color(red: 22/255, green: 32/255, blue: 53/255).ignoresSafeArea())
 		}
 		.onAppear(perform: {
-			medias = movieRepository.getSeries()
+			movieRepository.getPopularSerieIDs { IDs in
+				print(IDs)
+				mediaIDs = IDs
+			}
 		})
     }
 }
