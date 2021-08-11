@@ -28,6 +28,7 @@
 		646DB16E26A451E800CF520E /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DB16D26A451E800CF520E /* HomeView.swift */; };
 		646DB17226A4653F00CF520E /* RealMovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DB17126A4653F00CF520E /* RealMovieRepository.swift */; };
 		646DB17626A6CB9C00CF520E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DB17526A6CB9C00CF520E /* Constants.swift */; };
+		647CD85526C433EE009D0686 /* MovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CD85426C433EE009D0686 /* MovieInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,7 @@
 		646DB16D26A451E800CF520E /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		646DB17126A4653F00CF520E /* RealMovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealMovieRepository.swift; sourceTree = "<group>"; };
 		646DB17526A6CB9C00CF520E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		647CD85426C433EE009D0686 /* MovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +94,10 @@
 				6450727E26A1C34100427BEA /* Preview Content */,
 				646DB15826A328A000CF520E /* Views */,
 				646DB15926A328AD00CF520E /* ViewModels */,
+				647CD85726C43C40009D0686 /* Interactors */,
 				646DB16226A43F7900CF520E /* Models */,
+				647CD85626C43C26009D0686 /* Repositories */,
 				646DB16926A443F300CF520E /* MockedData.swift */,
-				646DB16B26A4464F00CF520E /* MockedMovieRepository.swift */,
-				646DB17126A4653F00CF520E /* RealMovieRepository.swift */,
 				646DB17526A6CB9C00CF520E /* Constants.swift */,
 			);
 			path = MyMovieDB;
@@ -157,6 +159,23 @@
 				646DB16D26A451E800CF520E /* HomeView.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		647CD85626C43C26009D0686 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				646DB16B26A4464F00CF520E /* MockedMovieRepository.swift */,
+				646DB17126A4653F00CF520E /* RealMovieRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		647CD85726C43C40009D0686 /* Interactors */ = {
+			isa = PBXGroup;
+			children = (
+				647CD85426C433EE009D0686 /* MovieInteractor.swift */,
+			);
+			path = Interactors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +257,7 @@
 				6450727926A1C33F00427BEA /* MyMovieDBApp.swift in Sources */,
 				646DB16426A43F9000CF520E /* Actor.swift in Sources */,
 				646DB16826A4408E00CF520E /* Serie.swift in Sources */,
+				647CD85526C433EE009D0686 /* MovieInteractor.swift in Sources */,
 				646DB16E26A451E800CF520E /* HomeView.swift in Sources */,
 				646DB15526A3017F00CF520E /* MovieDetailHeaderView.swift in Sources */,
 				646DB15D26A3297A00CF520E /* ActorCellViewModel.swift in Sources */,

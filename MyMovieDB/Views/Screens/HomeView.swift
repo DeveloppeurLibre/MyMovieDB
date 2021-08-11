@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
 	
 	let movieRepository = RealMovieRepository()
-	@State var mediaIDs = [Int]()
+	@State var medias = [Serie]()
 	
 	init() {
 		let appearance = UINavigationBarAppearance()
@@ -29,29 +29,34 @@ struct HomeView: View {
 	}
 	
     var body: some View {
-		NavigationView {
-			ScrollView {
-//				ForEach(medias) { medium in
-//					let viewModel = MovieCellViewModel(
-//						imageURL: medium.imageURL,
-//						title: medium.title,
-//						seasonCount: medium.seasons.count,
-//						genres: medium.genres,
-//						rating: medium.rating,
-//						description: medium.description
-//					)
-//					MovieCell(viewModel: viewModel)
-//				}
+		ZStack(alignment: .top) {
+			NavigationView {
+				ScrollView {
+					ForEach(medias) { medium in
+						let viewModel = MovieCellViewModel(
+							imageURL: medium.imageURL,
+							title: medium.title,
+							seasonCount: medium.seasons.count,
+							genres: medium.genres,
+							rating: medium.rating,
+							description: medium.description
+						)
+						MovieCell(viewModel: viewModel)
+					}
+				}
+				.navigationTitle("My Movies")
+				.background(Color(red: 22/255, green: 32/255, blue: 53/255).ignoresSafeArea())
 			}
-			.navigationTitle("My Movies")
-			.background(Color(red: 22/255, green: 32/255, blue: 53/255).ignoresSafeArea())
+			.onAppear(perform: {
+				MovieInteractor().getSeries { series in
+					medias = series
+				}
+			})
+			Rectangle()
+				.frame(height: 60)
+				.foregroundColor(Color(red: 22/255, green: 32/255, blue: 53/255))
+				.ignoresSafeArea()
 		}
-		.onAppear(perform: {
-			movieRepository.getPopularSerieIDs { IDs in
-				print(IDs)
-				mediaIDs = IDs
-			}
-		})
     }
 }
 

@@ -35,7 +35,7 @@ class RealMovieRepository {
 			guard let data = data else { return }
 			guard let json = self.getJSON(from: data) else { return }
 			
-			let posterPath = json["poster_path"] as! String
+			let posterPath = json["poster_path"] as? String
 			let name = json["name"] as! String
 			let overview = json["overview"] as! String
 			let voteAverage = json["vote_average"] as! NSNumber
@@ -52,8 +52,9 @@ class RealMovieRepository {
 			let seasonJSON = json["seasons"] as! [[String: Any]]
 			var seasons = [Season]()
 			for season in seasonJSON {
+				let posterPath = season["poster_path"] as? String
 				let newSeason = Season(
-					imageURL: URL(string: "https://image.tmdb.org/t/p/w500/\(season["poster_path"] as! String)"),
+					imageURL: URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath ?? "")"),
 					seasonNumber: season["season_number"] as! Int,
 					episodesCound: season["episode_count"] as! Int,
 					description: season["overview"] as! String
@@ -62,7 +63,7 @@ class RealMovieRepository {
 			}
 			
 			let serie = Serie(
-				imageURL: URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath)"),
+				imageURL: URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath ?? "")"),
 				title: name,
 				description: overview,
 				seasons: seasons,
@@ -86,12 +87,12 @@ class RealMovieRepository {
 			var actors = [Actor]()
 			let cast = json["cast"] as! [[String: Any]]
 			for actor in cast {
-				let profilePath = actor["profile_path"] as! String
+				let profilePath = actor["profile_path"] as? String
 				let name = actor["name"] as! String
 				let character = actor["character"] as! String
 				
 				let newActor = Actor(
-					url: URL(string: "https://image.tmdb.org/t/p/w500/\(profilePath)"),
+					url: URL(string: "https://image.tmdb.org/t/p/w500/\(profilePath ?? "")"),
 					name: name,
 					characterName: character
 				)
