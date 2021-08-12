@@ -41,7 +41,12 @@ struct HomeView: View {
 							rating: medium.rating,
 							description: medium.description
 						)
-						MovieCell(viewModel: viewModel)
+						NavigationLink(
+							destination: DetailView(serie: medium),
+							label: {
+								MovieCell(viewModel: viewModel)
+							}
+						)
 					}
 				}
 				.navigationTitle("My Movies")

@@ -29,6 +29,7 @@
 		646DB17226A4653F00CF520E /* RealMovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DB17126A4653F00CF520E /* RealMovieRepository.swift */; };
 		646DB17626A6CB9C00CF520E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 646DB17526A6CB9C00CF520E /* Constants.swift */; };
 		647CD85526C433EE009D0686 /* MovieInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CD85426C433EE009D0686 /* MovieInteractor.swift */; };
+		647CD85926C442B5009D0686 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 647CD85826C442B5009D0686 /* DetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		646DB17126A4653F00CF520E /* RealMovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealMovieRepository.swift; sourceTree = "<group>"; };
 		646DB17526A6CB9C00CF520E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		647CD85426C433EE009D0686 /* MovieInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieInteractor.swift; sourceTree = "<group>"; };
+		647CD85826C442B5009D0686 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				646DB16D26A451E800CF520E /* HomeView.swift */,
+				647CD85826C442B5009D0686 /* DetailView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				646DB16C26A4464F00CF520E /* MockedMovieRepository.swift in Sources */,
 				6450729126A1F98100427BEA /* SeasonView.swift in Sources */,
 				646DB16626A4404300CF520E /* Season.swift in Sources */,
+				647CD85926C442B5009D0686 /* DetailView.swift in Sources */,
 				6450728F26A1DAFA00427BEA /* ActorCell.swift in Sources */,
 				646DB16126A32AFA00CF520E /* MovieDetailHeaderViewModel.swift in Sources */,
 				646DB17226A4653F00CF520E /* RealMovieRepository.swift in Sources */,

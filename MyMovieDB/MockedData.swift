@@ -29,13 +29,13 @@ let mockedSeasons = [
 	Season(
 		imageURL: URL(string: "https://www.themoviedb.org/t/p/w130_and_h195_bestv2/maa5tGyJqp5M0RQ7jC4RDZxgzfu.jpg"),
 		seasonNumber: 5,
-		episodesCound: 16,
+		episodesCount: 16,
 		description: "« Walt » et Jesse, après la mort de Gustavo « Gus » Fring, décident de poursuivre la production de métamphétamine accompagnés de Mike. Walter prend cette décision car ayant perdu la majeure partie de l'argent qu'il avait accumulé lors de sa collaboration avec « Gus », sa femme Skyler ayant donné à son employeur Ted Beneke la somme de 600 000 dollars pour rembourser le fisc. La relation entre Walt et sa femme se détériore progressivement."
 	),
 	Season(
 		imageURL: URL(string: "https://www.themoviedb.org/t/p/w130_and_h195_bestv2/swtEUT9WmNRyuPVpJ8XtbG1Mm3o.jpg"),
 		seasonNumber: 4,
-		episodesCound: 13,
+		episodesCount: 13,
 		description: "Walter essaye de retrouver une certaine stabilité dans sa vie professionnelle, tandis que Jesse va plus mal que jamais, étant proche d'un état dépressif. Mais grâce au deuxième travail qu'il effectue avec Mike, il retrouve alors un peu d'équilibre, et est habilité à protéger Gus lors de son attentat contre le cartel. De son côté, Gus négocie avec le cartel la libération de ses obligations, après avoir éliminé ses concurrents et part en croisade contre eux."
 	),
 ]

@@ -56,7 +56,7 @@ class RealMovieRepository {
 				let newSeason = Season(
 					imageURL: URL(string: "https://image.tmdb.org/t/p/w500/\(posterPath ?? "")"),
 					seasonNumber: season["season_number"] as! Int,
-					episodesCound: season["episode_count"] as! Int,
+					episodesCount: season["episode_count"] as! Int,
 					description: season["overview"] as! String
 				)
 				seasons.append(newSeason)
