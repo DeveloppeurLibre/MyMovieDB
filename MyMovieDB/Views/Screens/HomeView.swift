@@ -10,7 +10,7 @@ import SwiftUI
 struct HomeView: View {
 	
 	let movieRepository = RealMovieRepository()
-	@State var medias = [Serie]()
+	@EnvironmentObject var appState: AppState
 	
 	init() {
 		let appearance = UINavigationBarAppearance()
@@ -32,7 +32,7 @@ struct HomeView: View {
 		ZStack(alignment: .top) {
 			NavigationView {
 				ScrollView {
-					ForEach(medias) { medium in
+					ForEach(appState.series) { medium in
 						let viewModel = MovieCellViewModel(
 							imageURL: medium.imageURL,
 							title: medium.title,
@@ -53,9 +53,7 @@ struct HomeView: View {
 				.background(Color(red: 22/255, green: 32/255, blue: 53/255).ignoresSafeArea())
 			}
 			.onAppear(perform: {
-				MovieInteractor().getSeries { series in
-					medias = series
-				}
+				loadSeries()
 			})
 			Rectangle()
 				.frame(height: 60)
@@ -63,10 +61,19 @@ struct HomeView: View {
 				.ignoresSafeArea()
 		}
     }
+	
+	func loadSeries() {
+		MovieInteractor().getSeries { series in
+			DispatchQueue.main.async {
+				appState.series = series
+			}
+		}
+	}
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+			.environmentObject(AppState.preview)
     }
 }
