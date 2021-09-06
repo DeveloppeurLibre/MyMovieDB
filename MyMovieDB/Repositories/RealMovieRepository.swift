@@ -13,10 +13,8 @@ class RealMovieRepository {
 		let url = URL(string: "https://api.themoviedb.org/3/tv/popular?api_key=\(API_KEY)&language=fr")!
 		
 		var IDs = [Int]()
-		let task = URLSession.shared.dataTask(with: url) { data, response, error in
-			guard let data = data else { return }
-			guard let json = self.getJSON(from: data) else { return }
-			
+		
+		JSONFetcher.fetchJSON(from: url) { json in
 			let results = json["results"] as! [[String: Any]]
 			
 			for result in results {
@@ -25,16 +23,12 @@ class RealMovieRepository {
 			}
 			completion(IDs)
 		}
-		task.resume()
 	}
 	
 	func getMovieDetails(id: Int, casting: [Actor], completion: @escaping (Serie) -> Void) {
 		let url = URL(string: "https://api.themoviedb.org/3/tv/\(id)?api_key=\(API_KEY)&language=fr")!
 		
-		let task = URLSession.shared.dataTask(with: url) { data, response, error in
-			guard let data = data else { return }
-			guard let json = self.getJSON(from: data) else { return }
-			
+		JSONFetcher.fetchJSON(from: url) { json in
 			let posterPath = json["poster_path"] as? String
 			let name = json["name"] as! String
 			let overview = json["overview"] as! String
@@ -74,16 +68,12 @@ class RealMovieRepository {
 			
 			completion(serie)
 		}
-		task.resume()
 	}
 	
 	func getCreditsDetails(forMovieID id: Int, completion: @escaping ([Actor]) -> Void) {
 		let url = URL(string: "https://api.themoviedb.org/3/tv/\(id)/credits?api_key=\(API_KEY)&language=fr")!
 		
-		let task = URLSession.shared.dataTask(with: url) { data, response, error in
-			guard let data = data else { return }
-			guard let json = self.getJSON(from: data) else { return }
-			
+		JSONFetcher.fetchJSON(from: url) { json in
 			var actors = [Actor]()
 			let cast = json["cast"] as! [[String: Any]]
 			for actor in cast {
@@ -100,18 +90,6 @@ class RealMovieRepository {
 			}
 			
 			completion(actors)
-		}
-		
-		task.resume()
-	}
-	
-	private func getJSON(from data: Data) -> [String: Any]? {
-		do {
-			let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-			return json
-		} catch {
-			print("Erreur de conversion")
-			return nil
 		}
 	}
 }
